@@ -1,0 +1,155 @@
+#N canvas 612 23 825 855 10;
+#X text 197 3 pitch cloud;
+#X floatatom 91 2 5 0 0 0 - - -, f 5;
+#X obj 87 59 phasor~;
+#X obj 164 38 noise~;
+#X obj 164 59 abs~;
+#X obj 87 175 samphold~;
+#X obj 87 196 *~;
+#X obj 255 93 +~ 0.5;
+#X obj 255 114 wrap~;
+#X obj 255 175 samphold~;
+#X obj 255 196 *~;
+#X obj 117 238 sig~ 1;
+#X obj 117 259 -~;
+#X obj 117 280 *~ 0.5;
+#X obj 161 238 cos~;
+#X obj 287 238 sig~ 1;
+#X obj 287 259 -~;
+#X obj 287 280 *~ 0.5;
+#X obj 331 238 cos~;
+#X obj 255 217 +~;
+#X obj 255 238 osc~;
+#X obj 255 299 *~;
+#X obj 87 217 +~;
+#X obj 87 238 osc~;
+#X obj 87 299 *~;
+#X floatatom 327 78 5 0 0 2 freq_window - -, f 5;
+#X obj 493 363 *~;
+#X obj 612 405 hsl 50 8 0 1 0 0 empty empty volume -2 -8 1 10 -191407
+-1 -1 3300 1;
+#X text 67 415 noise~ is generating random values which is going into
+the left side of samphold remember: samphold is like spigot for audio
+signals if the right input decreases \, then it samples and hlds what's
+coming in the left input. in this case the phasor is setting the interval
+for the sampling. the random value form the noise that has been sampled
+is multiplied by the freq window: 0.5 *~ 200 => 100 and then added
+with the freq offset: 100 +~ 150 => 350 and then fed into the osc \,
+so now we have an osc going at 350 hz then the sig cos stuff is a way
+to make a hanning window \, just a smooth attack and release;
+#X obj 173 384 delwrite~ buff 5000;
+#X obj 257 356 *~;
+#X obj 612 429 hsl 50 8 0 0.9 0 0 empty empty feedback -2 -8 1 10 -191407
+-1 -1 3900 1;
+#X obj 607 319 vsl 8 50 1.5 150 1 0 empty empty chaos 0 -9 1 10 -191407
+-1 -1 4700 1;
+#X obj 623 329 vsl 8 50 1 500 1 0 empty empty width 0 -9 1 10 -191407
+-1 -1 900 1;
+#X obj 638 338 vsl 8 50 1 5000 1 0 empty empty pitch 0 -9 1 10 -191407
+-1 -1 3300 1;
+#X obj 653 347 tgl 15 0 empty empty inv 0 -7 1 10 -258113 -1 -1 0 1
+;
+#X obj 653 377 tgl 15 0 empty empty slo 0 -7 1 10 -258113 -1 -1 1 1
+;
+#X obj 397 216 f;
+#X obj 398 245 pack;
+#X obj 393 174 t b f;
+#X obj 398 266 route 0 1;
+#X obj 424 290 * -1;
+#X obj 467 126 f;
+#X obj 468 155 pack;
+#X obj 463 84 t b f;
+#X obj 469 176 route 0 1;
+#X obj 492 209 / 150;
+#X obj 516 20 inlet;
+#X obj 516 72 * 150;
+#X obj 566 20 inlet;
+#X obj 606 20 inlet;
+#X obj 646 20 inlet;
+#X obj 696 20 inlet;
+#X obj 566 72 * 500;
+#X obj 606 72 * 5000;
+#X obj 468 386 outlet~;
+#X obj 438 326 vd~ buff;
+#X msg 538 375 \$1 20;
+#X obj 538 396 line~;
+#X msg 200 95 \$1 20;
+#X obj 200 116 line~;
+#X msg 185 158 \$1 20;
+#X obj 184 179 line~;
+#X msg 90 21 \$1 20;
+#X obj 90 42 line~;
+#X connect 1 0 63 0;
+#X connect 2 0 5 1;
+#X connect 2 0 14 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 9 0;
+#X connect 5 0 6 0;
+#X connect 6 0 22 0;
+#X connect 7 0 8 0;
+#X connect 8 0 18 0;
+#X connect 8 0 9 1;
+#X connect 9 0 10 0;
+#X connect 10 0 19 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 24 1;
+#X connect 14 0 12 1;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 21 1;
+#X connect 18 0 16 1;
+#X connect 19 0 20 0;
+#X connect 20 0 21 0;
+#X connect 21 0 29 0;
+#X connect 22 0 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 29 0;
+#X connect 26 0 55 0;
+#X connect 27 0 57 0;
+#X connect 30 0 29 0;
+#X connect 31 0 30 1;
+#X connect 32 0 44 0;
+#X connect 33 0 59 0;
+#X connect 34 0 61 0;
+#X connect 35 0 37 1;
+#X connect 35 0 37 0;
+#X connect 36 0 42 1;
+#X connect 36 0 42 0;
+#X connect 37 0 38 0;
+#X connect 38 0 40 0;
+#X connect 39 0 37 0;
+#X connect 39 1 38 1;
+#X connect 40 0 1 0;
+#X connect 40 1 41 0;
+#X connect 41 0 1 0;
+#X connect 42 0 43 0;
+#X connect 43 0 45 0;
+#X connect 44 0 42 0;
+#X connect 44 1 43 1;
+#X connect 45 0 39 0;
+#X connect 45 1 46 0;
+#X connect 46 0 39 0;
+#X connect 47 0 48 0;
+#X connect 48 0 32 0;
+#X connect 49 0 53 0;
+#X connect 50 0 54 0;
+#X connect 51 0 27 0;
+#X connect 52 0 31 0;
+#X connect 53 0 33 0;
+#X connect 54 0 34 0;
+#X connect 56 0 30 0;
+#X connect 56 0 26 0;
+#X connect 57 0 58 0;
+#X connect 58 0 26 1;
+#X connect 59 0 60 0;
+#X connect 60 0 6 1;
+#X connect 60 0 10 1;
+#X connect 61 0 62 0;
+#X connect 62 0 22 1;
+#X connect 62 0 19 1;
+#X connect 63 0 64 0;
+#X connect 64 0 2 0;
+#X coords 0 -1 1 1 75 150 2 600 300;

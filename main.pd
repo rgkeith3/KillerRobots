@@ -1,0 +1,40 @@
+#N canvas 0 23 627 478 10;
+#X obj 115 289 grain_delay;
+#X obj 211 46 lfo;
+#X obj 35 32 wind;
+#X obj 124 45 kick;
+#X obj 271 179 hat;
+#X obj 416 119 metro;
+#X floatatom 449 85 5 0 0 0 - - -, f 5;
+#X obj 403 84 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 416 140 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 478 386 dac~;
+#X obj 337 320 f;
+#X obj 337 341 + 1;
+#X obj 337 362 % 4;
+#X obj 337 383 sel 0;
+#X text 357 207 todo: drum: kik but higher \, with 3 rands import stepper
+make a melody sequencer make a pitch quantizer make some utils - vca
+- mixer make some oscs make a chord player some envs- ad - adsr - super
+env more effects - spectral del spectral filter regular filters sample
+player, f 35;
+#X text 244 16 need to figure out how to have tabs with uniq ids;
+#X obj 504 58 drum;
+#X connect 0 0 9 0;
+#X connect 0 0 9 1;
+#X connect 1 0 0 3;
+#X connect 3 0 9 0;
+#X connect 3 0 9 1;
+#X connect 4 0 0 0;
+#X connect 4 1 10 0;
+#X connect 5 0 8 0;
+#X connect 6 0 5 1;
+#X connect 7 0 5 0;
+#X connect 8 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 10 1;
+#X connect 12 0 13 0;
+#X connect 13 0 3 0;
