@@ -1,0 +1,121 @@
+#N canvas 0 23 824 855 10;
+#X floatatom 82 113 5 0 0 0 - - -, f 5;
+#X obj 83 134 mtof;
+#X floatatom 71 186 5 0 0 0 - - -, f 5;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array wav 100 float 5;
+#A 0 0.0142905 0.0428621 0.0571479 0.0857195 0.100005 0.114291 0.128577
+0.157148 0.18572 0.200006 0.228577 0.228577 0.257149 0.271435 0.285721
+0.300007 0.314292 0.328578 0.342864 0.35715 0.35715 0.371436 0.385721
+0.400007 0.414293 0.428579 0.442865 0.45715 0.471436 0.471436 0.485722
+0.500008 0.500008 0.514294 0.514294 0.514294 0.528579 0.528579 0.528579
+0.528579 0.528579 0.528579 0.528579 0.500008 0.45715 0.442865 0.400007
+0.371436 0.328578 0.285721 0.228577 0.18572 0.100005 0.0428621 -0.028567
+-0.0571386 -0.099996 -0.099996 -0.114282 -0.128568 -0.142853 -0.142853
+-0.157139 -0.171425 -0.171425 -0.171425 -0.171425 -0.171425 -0.171425
+-0.171425 -0.199997 -0.214282 -0.242854 -0.25714 -0.285711 -0.314283
+-0.342855 -0.35714 -0.942858 -0.928573 -0.928573 -0.914287 -0.900001
+-0.871429 -0.857144 -0.814286 0.228577 0.214292 0.157148 -0.499998
+-0.471427 -0.442855 -0.414284 -0.385712 -0.328569 -0.285711 -0.199997
+-0.185711 -0.557146 -0.585717;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 555 82 graph;
+#X obj 50 426 tabread4~ wav;
+#X obj 48 311 phasor~;
+#X obj 140 426 tabread4~ wav;
+#X obj 140 310 phasor~;
+#X obj 139 369 *~ 100;
+#X obj 154 46 vsl 15 128 0 1 0 1 empty empty int 0 -9 1 10 -262144
+-1 -1 0 1;
+#X obj 151 206 t b f;
+#X obj 139 279 expr ($f1 * $f2) + $f1;
+#X obj 627 360 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X obj 490 279 vradio 15 1 1 2 empty empty subw 0 -8 1 10 -262144 -1
+-1 0;
+#X obj 445 278 vradio 15 1 1 2 empty empty subf 0 -8 1 10 -262144 -1
+-1 0;
+#X obj 445 313 * 2;
+#X obj 445 334 + 2;
+#X obj 427 366 /;
+#X obj 233 164 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 427 387 osc~;
+#X obj 467 366 /;
+#X obj 467 387 phasor~;
+#X obj 528 341 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 490 314 - 1;
+#X obj 490 335 abs;
+#X obj 502 362 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 427 408 *~;
+#X obj 292 604 *~;
+#X obj 448 576 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 6000 1;
+#X obj 49 369 *~ 100;
+#X obj 254 316 phasor~;
+#X obj 254 358 tabread4~ wav;
+#X obj 254 400 tabread4~ wav;
+#X obj 261 429 *~;
+#X obj 362 132 vsl 15 128 0 1 0 1 empty empty flip 0 -9 1 10 -262144
+-1 -1 12700 1;
+#X obj 254 337 *~ 100;
+#X obj 254 379 *~ -100;
+#X obj 466 499 *~;
+#X obj 467 408 *~ 100;
+#X obj 467 429 tabread4~ wav;
+#X obj 467 450 *~;
+#X text 183 66 add abililty to select waveform like lfo also take input
+from audio;
+#X obj 50 51 inlet;
+#X obj 285 659 outlet~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 2 0 11 0;
+#X connect 2 0 17 0;
+#X connect 2 0 20 0;
+#X connect 2 0 30 0;
+#X connect 4 0 27 0;
+#X connect 5 0 29 0;
+#X connect 6 0 27 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 10 0;
+#X connect 10 0 2 0;
+#X connect 10 1 11 1;
+#X connect 11 0 7 0;
+#X connect 12 0 37 1;
+#X connect 13 0 22 0;
+#X connect 13 0 23 0;
+#X connect 14 0 15 0;
+#X connect 14 0 18 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 1;
+#X connect 16 0 20 1;
+#X connect 17 0 19 0;
+#X connect 18 0 2 0;
+#X connect 19 0 26 0;
+#X connect 20 0 21 0;
+#X connect 21 0 38 0;
+#X connect 22 0 40 1;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 1;
+#X connect 26 0 37 0;
+#X connect 27 0 43 0;
+#X connect 28 0 27 1;
+#X connect 29 0 4 0;
+#X connect 30 0 35 0;
+#X connect 31 0 36 0;
+#X connect 32 0 33 0;
+#X connect 33 0 27 0;
+#X connect 34 0 33 1;
+#X connect 35 0 31 0;
+#X connect 36 0 32 0;
+#X connect 37 0 27 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 40 0 37 0;
+#X connect 42 0 0 0;

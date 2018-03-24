@@ -35,17 +35,17 @@
 #X obj 233 681 *~;
 #X obj 187 703 delwrite~ b1 10000;
 #X obj 124 66 vsl 8 50 0 0.99 0 0 empty empty fb 0 -9 1 10 -191407
--1 -1 4900 1;
+-1 -1 4600 1;
 #X obj 106 66 vsl 8 50 0 1 0 1 empty empty d/w 0 -9 1 10 -191407 -1
--1 0 1;
+-1 2400 1;
 #X obj 142 64 hsl 50 8 10 30000 0 0 empty empty g.size -2 -8 1 10 -191407
--1 -1 0 1;
+-1 -1 3200 1;
 #X obj 142 88 hsl 50 8 -36 36 0 0 empty empty trans -2 -8 1 10 -191407
--1 -1 0 1;
+-1 -1 3600 1;
 #X obj 116 643 expr 1 - $f1;
 #X floatatom 116 664 5 0 0 0 - - -, f 5;
 #X obj 142 714 *~;
-#X obj 140 104 tgl 15 0 empty empty cloud 17 7 0 10 -258113 -1 -1 0
+#X obj 140 104 tgl 15 0 empty empty cloud 0 20 1 10 -258113 -1 -1 0
 1;
 #X obj 275 221 * 10;
 #X obj 208 144 f;
