@@ -1,10 +1,10 @@
-#N canvas 443 55 584 498 10;
+#N canvas 443 83 584 498 10;
 #X obj 407 115 vsl 8 50 0 3 0 1 empty rate rate 0 -9 1 10 -191407 -1
--1 0 0;
+-1 4100 0;
 #X floatatom 405 180 5 1 6 2 shape - -, f 5;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array \$0-wav 441 float 2;
-#X coords 0 1 441 -1 100 75 2 0 0;
+#X array \$0-wav 441 float 2 black black;
+#X coords 0 1 441 -1 100 75 1;
 #X restore 441 114 graph;
 #X obj 121 197 osc~ 100;
 #X obj 18 391 snapshot~;
